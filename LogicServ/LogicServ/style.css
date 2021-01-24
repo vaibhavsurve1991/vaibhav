@@ -1,0 +1,259 @@
+﻿body {
+    /*background-color:whitesmoke;*/
+}
+.titleDiv {
+    background-color: white;
+    /* border: 1px groove #e6e1e1;*/
+    box-shadow: 0px 5px 5px 0px #e6e1e1;
+}
+h1 {
+    color: #53e2e6;
+    font-family: inherit;
+    padding:5% 1% 5% 15%;
+}
+.HeadSpan1 {
+    color: black;
+    font-family: inherit;
+}
+.HeadSpan2 {
+    color: #53e2e6;
+    font-family: inherit;
+}
+.rightSmallDiv {
+    box-shadow: 1px 0px 0px 0px #e6e1e1;
+    font-size: smaller;
+    margin-top: 6%;
+}
+.prgressBarOuterDiv {
+    background-color: #c4f9fbfc;
+    width: 100%;
+    height: 9px;
+}
+#prgressBar {
+    background-color: #007bff94;
+    width: 13%;
+    height: 9px;
+}
+/*#diamond {
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: #098e92;
+    position: relative;
+    top: -50px;
+    color:white;
+}
+
+    #diamond:after {
+        content: '';
+        position: absolute;
+        left: -50px;
+        top: 50px;
+        width: 0;
+        height: 0;
+        border: 50px solid transparent;
+        border-top-color: #098e92;
+        color: white;
+    }*/
+#DiamondCount {
+    color: #098e92;
+    /* margin-left:30%;*/
+    font-size: xx-small;
+}
+#ProgrssCountDiv {
+    margin-left: 13%;
+}
+.HeadTabDiv {
+    background-color: white;
+    /* border: 1px groove #e6e1e1;*/
+    box-shadow: 0px 5px 5px 0px #e6e1e1;
+    width: 100%;
+    padding-bottom: 1%;
+    padding-top: 1%
+}
+.iconCss {
+    color: #dc6565;
+}
+.tablinks {
+    border: none;
+    width: 100%;
+    padding-left: 6%;
+    box-shadow: 1px 0px 0px 0px #e6e1e1;
+}
+.tablinkslast {
+    border: none;
+    width: 100%;
+    padding-left: 6%;
+}
+.tabButton {
+    border: none;
+    background-color: white;
+    /*box-shadow: 1px 0px 0px 0px #e6e1e1;*/
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-right: 3%;   
+}
+.MiddleTabDiv {
+    background-color: white;
+    /* border: 1px groove #e6e1e1;*/
+    box-shadow: 0px 0px 5px 0px #e6e1e1;
+    width: 100%;
+    margin-top:2px;
+}
+.MiddleDivMainTile {
+    padding-top: 4%;
+    /*padding-bottom: 2%;
+    box-shadow: 0px 2px 0px 0px #e6e1e1;*/
+}
+#ddlSelect {
+    width: 100%;
+    /*border: 1px solid #FFB6C1;*/
+    padding: 6px;
+   /* margin-top: -8px;*/
+    border: none;
+}
+.ddlselectDiv {
+    border: 1px solid #FFB6C1;
+    border-radius:2%;
+}
+.MiddleDivSecondTile {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    box-shadow: 0px 2px 0px 0px #e6e1e1;
+}
+.MiddleDivThirdTile {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    box-shadow: 0px 2px 0px 0px #e6e1e1;
+    width:100%;
+}
+.EditDiv{
+
+}
+.linkTab {
+    text-decoration: none;
+    color: #dc6565;
+}
+.ThirdTabHeader a{
+    box-shadow: 0px 2px 0px 0px #e6e1e1;
+    text-decoration:none;
+}
+    .ThirdTabHeader a:hover {
+        box-shadow: 0px 2px 0px 0px #dc6565;
+        text-decoration: none;
+    }
+    .ThirdTabHeader a:active {
+        box-shadow: 0px 2px 0px 0px #dc6565;
+        text-decoration: none;
+    }
+.lblCSS {
+    color: #867c7c;
+    font-size: small;
+    padding-top: 5%;
+    font-weight: bold;
+}
+.rdCSS {
+    color: #867c7c;
+    font-size: small;
+    padding-top: 2%;
+    font-weight: bold;
+}
+.txtCSS {
+    width: 96%;
+    border: 1px solid #e6e1e1;
+    border-radius: 2%;
+    font-size: smaller;
+    padding: 4px;
+    /*text-align:center;*/
+}
+.lblHeadercss {
+    font-size: small;
+    font-weight: bold;
+    color: #dc6565;
+    padding-top:20%;
+}
+.footerDiv {
+    box-shadow: 0px 0px 0px 1px #e6e1e1;
+    margin-bottom: 3%;
+}
+#btnContinue {
+    margin: 4px;
+    background-color: #83eff3fc;
+    color: white;
+    border: none;
+    padding: 4px;
+    border-radius: 7%;
+    font-weight: bold;
+    
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+.tabcontentsecond {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+.tablnk {
+    border: none;
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    /*box-shadow: 0px 0px 0px 1px #dc6565;*/
+    border-bottom: 2px solid #dc6565;
+    color: #dc6565;
+}
+.tablnkbutton {
+    border: none;
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    /*box-shadow: 0px 0px 0px 1px #dc6565;*/
+    color: #dc6565;
+    padding-top: 5%;
+    padding-bottom: 5% ;
+    font-weight: bold;
+}
+.tablnkSecond {
+    border: none;
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    /*box-shadow: 0px 0px 0px 1px #dc6565;*/
+    border-bottom: 2px solid #e6e1e1;
+    color: #867c7c;
+}
+.tablnkbuttonSecond {
+    border: none;
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    /*box-shadow: 0px 0px 0px 1px #dc6565;*/
+    color: #867c7c;
+    padding-top: 5%;
+    padding-bottom: 5% ;
+    font-weight: bold;
+}
+.tablnklast {
+    border: none;
+    width: 100%;
+    background-color: white;
+    margin-top: 2px;
+    /*box-shadow: 0px 0px 0px 1px #dc6565;*/
+    border-bottom: 2px solid #e6e1e1;
+    color: #dc6565;
+}
+.spanValidateApply{
+    font-size:smaller;
+    color:red;
+    visibility:visible;
+}
+.spanValidateRemove {
+    font-size: smaller;
+    color: red;
+    visibility:hidden;
+}

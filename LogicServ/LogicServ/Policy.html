@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Policy Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#txtDOB").datepicker();
+        });
+        $(function () {
+            $("#txtNomineeDOB").datepicker();
+        });
+        $(function () {
+            $("#txtSpouseDOB").datepicker();
+        });
+    </script>
+    <script type="text/javascript">
+        function openTab(id) {
+            if (id == "Self") {
+                $("#Self").css("display", "block");
+                $(".tablnk").css("border-bottom", "2px solid #dc6565");
+                $(".tablnkbutton").css("color", "#dc6565");
+
+                $("#Spouse").css("display", "none");
+                $(".tablnkSecond").css("border-bottom", "2px solid #e6e1e1");
+                $(".tablnkbuttonSecond").css("color", "#867c7c");
+            }
+            else if (id == "Spouse") {
+                $("#Self").css("display", "none");
+                $(".tablnk").css("border-bottom", "2px solid #e6e1e1");
+                $(".tablnkbutton").css("color", "#867c7c");
+
+                $("#Spouse").css("display", "block");
+                $(".tablnkSecond").css("border-bottom", "2px solid #dc6565");
+                $(".tablnkbuttonSecond").css("color", "#dc6565");
+            }
+        }
+        $(document).ready(function () {
+            $("#Self").css("display", "block");
+            $("#Spouse").css("display", "none");
+
+            $(".tablnk").css("border-bottom", "2px solid #dc6565");
+            $(".tablnkbutton").css("color", "#dc6565");
+
+            $(".tablnkSecond").css("border-bottom", "2px solid #e6e1e1");
+            $(".tablnkbuttonSecond").css("color", "#867c7c");
+        });
+
+        function IsnumericMobile(co, e) {
+            //debugger;
+            var con = co.value;
+            var leng = co.value.length;
+            var num = e.keyCode;
+            if (num > 47 && num < 58 || num == 32 || num == 8) {
+                if (leng < 10 || num == 8) {
+                    true;
+                }
+                else {
+                    e.preventDefault();
+                }
+            }
+            else {
+                e.preventDefault();
+            }
+        }
+        function IsnumericWeight(co, e) {
+            //debugger;
+            var con = co.value + '' + e.key;
+            var leng = co.value.length;
+            var num = e.keyCode;
+            if (num > 47 && num < 58 || num == 8) {//&& leng<3
+                if (con != "") {
+                    var t = parseInt(con);
+                    debugger;
+                    if (t > 200) {
+                        alert("Weight Between 1 to 200");
+                        e.preventDefault();
+                    }
+                }
+            }
+            else {
+                e.preventDefault();
+            }
+        }
+
+        $(document).ready(function () {
+            $("#btnContinue").click(function () {
+                if (Validate()) {
+                    openTab("Spouse");
+                    ProgressPercent("30%");
+                }
+                else {
+                    alert("All field are required");
+                }
+            })
+        });
+
+        function Validate() {
+            //debugger;
+            var isValid = true;
+
+            if ($("#txtFirstName").val() != "") {
+                isValid = true;
+                $("#txtFirstName").css("border", "1px solid #e6e1e1");
+                $("#spanFirstName").removeClass('spanValidateApply');
+                $("#spanFirstName").addClass('spanValidateRemove');
+            } else {
+                $("#txtFirstName").css("border", "1px solid red");
+                $("#spanFirstName").removeClass('spanValidateRemove');
+                $("#spanFirstName").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtLastName").val() != "") {
+                isValid = true;
+                $("#txtLastName").css("border", "1px solid #e6e1e1");
+                $("#spanLastName").removeClass('spanValidateApply');
+                $("#spanLastName").addClass('spanValidateRemove');
+            } else {
+                $("#txtLastName").css("border", "1px solid red");
+                $("#spanLastName").removeClass('spanValidateRemove');
+                $("#spanLastName").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtDOB").val() != "") {
+                isValid = true;
+                $("#txtDOB").css("border", "1px solid #e6e1e1");
+                $("#spanDOB").removeClass('spanValidateApply');
+                $("#spanDOB").addClass('spanValidateRemove');
+            } else {
+                $("#txtDOB").css("border", "1px solid red");
+                $("#spanDOB").removeClass('spanValidateRemove');
+                $("#spanDOB").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtWeight").val() != "") {
+                isValid = true;
+                $("#txtWeight").css("border", "1px solid #e6e1e1");
+                $("#spanWeight").removeClass('spanValidateApply');
+                $("#spanWeight").addClass('spanValidateRemove');
+            } else {
+                $("#txtWeight").css("border", "1px solid red");
+                $("#spanWeight").removeClass('spanValidateRemove');
+                $("#spanWeight").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtNomineeName").val() != "") {
+                isValid = true;
+                $("#txtNomineeName").css("border", "1px solid #e6e1e1");
+                $("#spanNomineeName").removeClass('spanValidateApply');
+                $("#spanNomineeName").addClass('spanValidateRemove');
+            } else {
+                $("#txtNomineeName").css("border", "1px solid red");
+                $("#spanNomineeName").removeClass('spanValidateRemove');
+                $("#spanNomineeName").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtNomineeDOB").val() != "") {
+                isValid = true;
+                $("#txtNomineeDOB").css("border", "1px solid #e6e1e1");
+                $("#spanNomineeDOB").removeClass('spanValidateApply');
+                $("#spanNomineeDOB").addClass('spanValidateRemove');
+            } else {
+                $("#txtNomineeDOB").css("border", "1px solid red");
+                $("#spanNomineeDOB").removeClass('spanValidateRemove');
+                $("#spanNomineeDOB").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#txtMobile").val() != "") {
+                isValid = true;
+                $("#txtMobile").css("border", "1px solid #e6e1e1");
+                $("#spanMobile").removeClass('spanValidateApply');
+                $("#spanMobile").addClass('spanValidateRemove');
+            } else {
+                $("#txtMobile").css("border", "1px solid red");
+                $("#spanMobile").removeClass('spanValidateRemove');
+                $("#spanMobile").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#ddlOccupation option:selected").val() != "0") {
+                isValid = true;
+                $("#ddlOccupation").css("border", "1px solid #e6e1e1");
+                $("#spanOccupation").removeClass('spanValidateApply');
+                $("#spanOccupation").addClass('spanValidateRemove');
+            } else {
+                $("#ddlOccupation").css("border", "1px solid red");
+                $("#spanOccupation").removeClass('spanValidateRemove');
+                $("#spanOccupation").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#ddlfeet option:selected").val() != "0") {
+                isValid = true;
+                $("#ddlfeet").css("border", "1px solid #e6e1e1");
+                $("#spanHeight").removeClass('spanValidateApply');
+                $("#spanHeight").addClass('spanValidateRemove');
+            } else {
+                $("#ddlfeet").css("border", "1px solid red");
+                $("#spanHeight").removeClass('spanValidateRemove');
+                $("#spanHeight").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#ddlInch option:selected").val() != "0") {
+                isValid = true;
+                $("#ddlInch").css("border", "1px solid #e6e1e1");
+                $("#spanHeight").removeClass('spanValidateApply');
+                $("#spanHeight").addClass('spanValidateRemove');
+            } else {
+                $("#ddlInch").css("border", "1px solid red");
+                $("#spanHeight").removeClass('spanValidateRemove');
+                $("#spanHeight").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($("#ddlRelation option:selected").val() != "0") {
+                isValid = true;
+                $("#ddlRelation").css("border", "1px solid #e6e1e1");
+                $("#spanRelationWithNominee").removeClass('spanValidateApply');
+                $("#spanRelationWithNominee").addClass('spanValidateRemove');
+            } else {
+                $("#ddlRelation").css("border", "1px solid red");
+                $("#spanRelationWithNominee").removeClass('spanValidateRemove');
+                $("#spanRelationWithNominee").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            if ($('input[name="gender"]:checked').val() == "Single" || $('input[name="gender"]:checked').val() == "Married") {
+                isValid = true;
+                $("#spanMaritialStatus").removeClass('spanValidateApply');
+                $("#spanMaritialStatus").addClass('spanValidateRemove');
+            } else {
+                $("#spanMaritialStatus").removeClass('spanValidateRemove');
+                $("#spanMaritialStatus").addClass('spanValidateApply');
+                isValid = false;
+            }
+
+            //isValid = true;
+            return isValid;
+        }
+
+        function ProgressPercent(size) {
+            var s = size;
+            //debugger;
+            $("#DiamondCount").text(s);
+            $("#prgressBar").css("width", s);
+            $("#ProgrssCountDiv").css("margin-left", s);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 titleDiv">
+                    <h1>Logo</h1>
+                </div>
+                <div class="col-md-9 titleDiv">
+                    <div class="row">
+                        <div class="col-md-6">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="row">
+                                <div class="col-md-4 rightSmallDiv">
+                                    <span class="HeadSpan1">Plane Name</span>
+                                    <p><span class="HeadSpan2">Optima Restore</span></p>
+                                </div>
+                                <div class="col-md-4 rightSmallDiv">
+                                    <span class="HeadSpan1">Cover</span>
+                                    <p><span class="HeadSpan2">&#8377; 4550.000</span></p>
+                                </div>
+                                <div class="col-md-4 rightSmallDiv">
+                                    <span class="HeadSpan1">Premium/Yr</span>
+                                    <p><span class="HeadSpan2">&#8377; 5,990</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="ProgrssCountDiv">
+                    <!--<div id="diamond">
+                        &nbsp;
+                    </div>-->
+                    <label id="DiamondCount">13%</label>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="prgressBarOuterDiv">
+                    <div id="prgressBar">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="HeadTabDiv">
+                    <div class="row">
+                        <div class="col-md-3 tablinks active">
+                            <i class="fa fa-trophy iconCss" aria-hidden="true"></i><button class="tabButton" onclick="openCity(event, 'Members1')" id="defaultOpen">Members Step</button>
+                        </div>
+                        <div class="col-md-3 tablinks">
+                            <i class="fa fa-address-book iconCss" aria-hidden="true"></i><button class="tabButton" onclick="openCity(event, 'Members2')">Members Step2</button>
+                        </div>
+                        <div class="col-md-3 tablinks">
+                            <i class="fa fa-plus iconCss" aria-hidden="true"></i><button class="tabButton" onclick="openCity(event, 'Members3')">Members Step3</button>
+                        </div>
+                        <div class="col-md-3 tablinkslast">
+                            <i class="fa fa-university iconCss" aria-hidden="true"></i><button class="tabButton" onclick="openCity(event, 'Members4')">Members Step4</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container MiddleTabDiv">
+            <div class="row">
+                <div class="col-md-7">
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 MiddleDivMainTile">
+                                    <h4><strong>People insured under the policy</strong></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 MiddleDivSecondTile">
+                                    <h6><strong>Proposer for the policy is</strong></h6>
+                                </div>
+                                <div class="col-md-1 MiddleDivSecondTile">
+                                    <i class="fa fa-info-circle " style="color: #bfb9b9;" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-5 MiddleDivSecondTile">
+                                    <div class="ddlselectDiv">
+                                        <select name="Select" id="ddlSelect">
+                                            <option value="0" selected="selected">Self</option>
+                                            <option value="1">Self1</option>
+                                            <option value="2">Self2</option>
+                                            <option value="3">Self3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 MiddleDivSecondTile">
+                                    <div class="EditDiv">
+                                        Edit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 tablnk">
+                                    <!--<a data-toggle="tab" href="#Self">Self</a>-->
+                                    <button class="tablnkbutton" onclick="openTab('Self')">Self</button>
+                                </div>
+                                <div class="col-md-2 tablnkSecond">
+                                    <!--<a data-toggle="tab" href="#Spouse">Spouse</a>-->
+                                    <button class="tablnkbuttonSecond" onclick="openTab('Spouse')">Spouse</button>
+                                </div>
+                                <div class="col-md-8 tablnklast">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <div>
+                                <div style="border:none;">
+                                    <!--<div id="Self" class="tab-pane  active">-->
+                                    <div id="Self" class="tabcontent">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    First Name
+                                                </label>
+                                                <input id="txtFirstName" class="txtCSS" type="text" placeholder="Enter First Name" />
+                                                <span id="spanFirstName" class="spanValidateRemove">*</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Last Name
+                                                </label>
+                                                <input id="txtLastName" class="txtCSS" type="text" placeholder="Enter Last Name" />
+                                                <span id="spanLastName" class="spanValidateRemove">*</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Your Date Of Birth
+                                                </label>
+                                                <input id="txtDOB" class="txtCSS" type="text" placeholder="DD/MM/YYYY" />
+                                                <span id="spanDOB" class="spanValidateRemove">*</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Occupation
+                                                </label>
+                                                <select name="Select" class="txtCSS" id="ddlOccupation">
+                                                    <option value="0" selected="selected">Please Select Occupation</option>
+                                                    <option value="1">Occupation1</option>
+                                                    <option value="2">Occupation2</option>
+                                                    <option value="3">Occupation3</option>
+                                                </select>
+                                                <span id="spanOccupation" class="spanValidateRemove">*</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Height
+                                                </label>
+                                                <div style="width:96%">
+                                                    <select name="Select" style="width:45%" class="txtCSS" id="ddlfeet">
+                                                        <option value="0" selected="selected">Please Feet</option>
+                                                        <option value="1">5</option>
+                                                        <option value="2">6</option>
+                                                        <option value="3">7</option>
+                                                    </select>
+                                                    <select name="Select" style="width:45%" class="txtCSS" id="ddlInch">
+                                                        <option value="0" selected="selected">Please Inch</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
+                                                    <span id="spanHeight" class="spanValidateRemove">*</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Weight
+                                                </label>
+                                                <input id="txtWeight" class="txtCSS" onkeypress="IsnumericWeight(this,event)" type="text" placeholder="In kg" />
+                                                <span id="spanWeight" class="spanValidateRemove">*</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Maritial Status
+                                                    <span id="spanMaritialStatus" class="spanValidateRemove">*</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 rdCSS">
+                                                <input type="radio" id="Single" name="gender" value="Single" />&nbsp;Single
+                                            </div>
+                                            <div class="col-md-3 rdCSS">
+                                                <input type="radio" id="Married" name="gender" value="Married" />&nbsp;Married
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="lblHeadercss">
+                                                    Nominee Details
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Nominees's Full Name
+                                                </label>
+                                                <input id="txtNomineeName" class="txtCSS" type="text" placeholder="Enter Nominees's Full Name" />
+                                                <span id="spanNomineeName" class="spanValidateRemove">*</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Relation with Nominee
+                                                </label>
+                                                <select name="Select" class="txtCSS" id="ddlRelation">
+                                                    <option value="0" selected="selected">Please Select</option>
+                                                    <option value="1">Mother</option>
+                                                    <option value="2">Father</option>
+                                                </select>
+                                                <span id="spanRelationWithNominee" class="spanValidateRemove">*</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Nominees's Date Of Birth
+                                                </label>
+                                                <input id="txtNomineeDOB" class="txtCSS" type="text" placeholder="DD/MM/YYYY" />
+                                                <span id="spanNomineeDOB" class="spanValidateRemove">*</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Mobile No. Of Nominees's
+                                                </label>
+                                                <input id="txtMobile" class="txtCSS" onkeydown="IsnumericMobile(this,event)" style="margin-bottom:5%;" type="text" placeholder="Enter Your Mobile Number" />
+                                                <span id="spantxtMobile" class="spanValidateRemove">*</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div id="Spouse" class="tab-pane fade">-->
+                                    <div id="Spouse" class="tabcontentsecond">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    First Name
+                                                </label>
+                                                <input id="txtSpouseFirstName" class="txtCSS" type="text" placeholder="Enter First Name" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Last Name
+                                                </label>
+                                                <input id="txtSpouseLastName" class="txtCSS" type="text" placeholder="Enter Last Name" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Your Date Of Birth
+                                                </label>
+                                                <input id="txtSpouseDOB" class="txtCSS" type="text" placeholder="DD/MM/YYYY" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Occupation
+                                                </label>
+                                                <select name="Select" class="txtCSS" id="ddlSpouseOccupation">
+                                                    <option value="0" selected="selected">Please Select Occupation</option>
+                                                    <option value="1">Occupation1</option>
+                                                    <option value="2">Occupation2</option>
+                                                    <option value="3">Occupation3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Height
+                                                </label>
+                                                <div style="width:100%">
+                                                    <select name="Select" style="width:49%" class="txtCSS" id="ddlSpousefeet">
+                                                        <option value="0" selected="selected">Please Feet</option>
+                                                        <option value="1">5</option>
+                                                        <option value="2">6</option>
+                                                        <option value="3">7</option>
+                                                    </select>
+                                                    <select name="Select" style="width:49%" class="txtCSS" id="ddlSpousefeet">
+                                                        <option value="0" selected="selected">Please Inch</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="lblCSS">
+                                                    Weight
+                                                </label>
+                                                <input id="txtSpouseWeight" style="margin-bottom:5%;" onkeypress="IsnumericWeight(this,event)" class="txtCSS" type="text" placeholder="In kg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 footerDiv">
+                    <button type="button" id="btnContinue">&nbsp;&nbsp;&nbsp;Continue&nbsp;&#8594;&nbsp;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
